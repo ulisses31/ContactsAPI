@@ -43,6 +43,12 @@ https://localhost:44384/api/user/register
    "MobilePhoneNumber": "+44 765454457"
 }
 
+Note: The idea here is that users and contacts are inserted without any skills and
+the skills are added later by invoking the create contactSkill in the api.
+Of course before calling the contactSkill create web method to say which skills a contact has,
+we must have created an entry in the Skills table before using the create Skill web method.
+Users, Contacts, Skills and ContactSkills tables are all using integer primary keys.
+
 If you're using Postman to test, you can select "Bearer Token" in the "Authorization" tab and insert the given toke there.
 
 # Other example calls
@@ -71,9 +77,7 @@ https://localhost:44384/api/skill
 {
    "Name": "C#"
 }
-{
-   "Name": "Java"
-}
+
 
 
 // Insert ContactSkill  (POST)
@@ -83,10 +87,7 @@ https://localhost:44384/api/contactSkill
    "SkillId": "1",
    "Level": "9"
 }		
-{
-   "ContactId": "1",
-   "SkillId": "2"
-}		
+	
 
 To update all fields in a contact record  (PUT)
 https://localhost:44384/api/contact
