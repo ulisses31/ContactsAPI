@@ -1,0 +1,104 @@
+http://localhost:5000/api/team
+https://localhost:5001/api/team
+
+In Postman to do a post, put Body raw and in the right side select "JSON" instead of "Text" in the drop down
+
+To test insert:
+
+User Registration (POST)
+https://localhost:44384/api/user/register
+{
+   "Username": "jl",
+   "Password": "G78p1gY!",
+
+   "Firstname": "John",
+   "Lastname": "Lewisham",
+
+   "AddressLine1": "3 Myrtle Walk",
+   "AddressLine2": "Hawk House",
+   "City": "London",
+   "PostalCode": "75015",
+   "Country": "UK",
+   
+   "Email": "jl@gmail.com",
+   "MobilePhoneNumber": "+44 765454457"
+}		
+
+Authentication (after the user was created)   (POST)
+https://localhost:44384/api/user/authenticate
+{
+   "Username": "jl",
+   "Password": "G78p1gY!"
+}
+
+
+// Contact  (POST)
+https://localhost:44384/api/contact
+{
+   "Firstname": "Peverell",
+   "Lastname": "Lefèbvre",
+
+   "AddressLine1": "28 Rue La Boétie",
+   "AddressLine2": "Île-de-France",
+   "City": "Paris",
+   "PostalCode": "75015",
+   "Country": "France",
+   
+   "Email": "pevlef@gmail.com",
+   "MobilePhoneNumber": "+33 765454457"
+}		
+
+
+
+// Insert Skill  (POST)
+https://localhost:44384/api/skill
+{
+   "Name": "C#"
+}
+{
+   "Name": "Java"
+}
+
+
+// Insert ContactSkill
+https://localhost:44384/api/contactSkill
+{
+   "ContactId": "1",
+   "SkillId": "1",
+   "Level": "9"
+}		
+{
+   "ContactId": "1",
+   "SkillId": "2"
+}		
+
+To update all fields in a contact record  (PUT)
+https://localhost:44384/api/contact
+{
+   "Id": "1",
+   "Firstname": "X",
+   "Lastname": "Y",
+
+   "AddressLine1": "28 Rue La Boétie",
+   "AddressLine2": "Île-de-France",
+   "City": "Paris",
+   "PostalCode": "75015",
+   "Country": "France",
+   
+   "Email": "pevlef@gmail.com",
+   "MobilePhoneNumber": "+33 765454457"
+}		
+
+// To update some fields in a contact record (PATCH)
+https://localhost:44384/api/contact/1
+[
+   {  
+     "value": "28 Rue La Liberté",
+     "path": "/addressLine1",
+	 "op": "replace"
+   }
+]
+
+// Delete Skill  (DELETE)
+https://localhost:44384/api/skill/1
+
